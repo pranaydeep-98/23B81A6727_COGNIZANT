@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <style>
+        #welcomeBanner {
+            background-color: lightblue;
+            padding: 15px;
+        }
+
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .registration-form {
+            width: 500px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .registration-form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .registration-form input,
+        .registration-form select,
+        .registration-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .registration-form button {
+            margin-top: 15px;
+            padding: 10px 20px;
+        }
+
+        #confirmation {
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+  
+        .eventImage {
+            border: 2px solid black;
+            width: 200px;
+            height: 150px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+        .feedback-section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            width: 600px;
+        }
+
+        .feedback-section input,
+        .feedback-section select,
+        .feedback-section textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        #eventImage {
+            width: 200px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+
+        #feeDisplay,
+        #charCount,
+        #submitMsg,
+        #phoneMsg {
+            font-weight: bold;
+            color: green;
+         }
+        .video-section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            width: 700px;
+        }
+        .preference-section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            width: 500px;
+        }
+        #videoStatus {
+            color: green;
+            font-weight: bold;
+        }
+        .location-section {
+                margin-top: 30px;
+                padding: 20px;
+                border: 2px solid #ccc;
+                width: 600px;
+            }
+
+            #locationResult {
+                margin-top: 15px;
+                font-weight: bold;
+            }
+        </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+
+    <!-- Main -->
+    <main>
+        
+        <section id="home">
+            <h1>Welcome to the Local Community Event Portal</h1>
+        </section>
+        <section id="events">
+            <h2>Events</h2>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+        </section>
+        <div id="welcomeBanner">
+            <h2>Welcome Resident!</h2>
+
+            <p>
+                Today's
+                <span style="color:red; font-weight:bold;">
+                    Special Offer
+                </span>
+                is available for registered users.
+            </p>
+
+            <p class="highlight">
+                Community Festival Registration Open!
+            </p>
+        </div>
+        <!-- Event Gallery -->
+        <section id="gallery">
+            <h2>Past Community Events</h2>
+            <table border="1">
+                <tr>
+                    <td>
+                        <img src="event1.jpg"
+                            alt="Tree Plantation Drive"
+                            title="Tree Plantation Drive"
+                            class="eventImage">
+
+                        <p><b>Tree Plantation Drive</b></p>
+                    </td>
+
+                    <td>
+                        <img src="event2.jpg"
+                            alt="Food Donation Camp"
+                            title="Food Donation Camp"
+                            class="eventImage">
+
+                        <p><b>Food Donation Camp</b></p>
+                    </td>
+
+                    <td>
+                        <img src="event3.jpg"
+                            alt="Health Awareness Program"
+                            title="Health Awareness Program"
+                            class="eventImage">
+
+                        <p><b>Health Awareness Program</b></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="event4.jpg"
+                            alt="Blood Donation Camp"
+                            title="Blood Donation Camp"
+                            class="eventImage">
+
+                        <p><b>Blood Donation Camp</b></p>
+                    </td>
+
+                    <td>
+                        <img src="event5.jpg"
+                            alt="Clean City Campaign"
+                            title="Clean City Campaign"
+                            class="eventImage">
+
+                        <p><b>Clean City Campaign</b></p>
+                    </td>
+
+                    <td>
+                        <img src="event6.jpg"
+                            alt="Cultural Fest"
+                            title="Cultural Fest"
+                            class="eventImage">
+
+                        <p><b>Cultural Fest</b></p>
+                    </td>
+                </tr>
+
+            </table>
+        </section>
+
+        <section id="registration">
+            <h2>Event Registration</h2>
+
+            <form class="registration-form"
+                onsubmit="document.getElementById('confirmation').value='Registration Submitted Successfully!'; return false;">
+
+                <label for="name">Name</label>
+                <input type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                    autofocus>
+
+                <label for="email">Email</label>
+                <input type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+
+                <label for="date">Event Date</label>
+                <input type="date"
+                    id="date"
+                    name="date"
+                    required>
+
+                <label for="eventType">Event Type</label>
+                <select id="eventType" name="eventType" required>
+                    <option value="">Select Event</option>
+                    <option>Tree Plantation</option>
+                    <option>Blood Donation</option>
+                    <option>Health Camp</option>
+                    <option>Cultural Fest</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message"
+                        name="message"
+                        rows="4"
+                        placeholder="Enter your message"></textarea>
+
+                <button type="submit">Register</button>
+
+                <br><br>
+
+                <output id="confirmation"></output>
+
+            </form>
+        </section>
+        <section class="feedback-section">
+
+            <h2>Event Feedback</h2>
+
+            <!-- Phone Number -->
+            <label>Phone Number</label>
+            <input type="text" id="phone"
+                onblur="validatePhone()"
+                placeholder="Enter 10-digit phone number">
+
+            <p id="phoneMsg"></p>
+
+            <!-- Event Selection -->
+            <label>Select Event</label>
+            <select id="eventSelect" onchange="showFee()">
+                <option value="">Choose Event</option>
+                <option value="100">Tree Plantation</option>
+                <option value="200">Blood Donation Camp</option>
+                <option value="300">Cultural Fest</option>
+                <option value="400">Health Awareness Program</option>
+            </select>
+
+            <p id="feeDisplay"></p>
+
+            <!-- Feedback -->
+            <label>Feedback</label>
+            <textarea id="feedback"
+                    rows="5"
+                    onkeyup="countCharacters()"
+                    placeholder="Enter your feedback"></textarea>
+
+            <p id="charCount">Characters: 0</p>
+
+            <!-- Image -->
+            <h3>Double Click Image to Enlarge</h3>
+
+            <img src="event1.jpg"
+                id="eventImage"
+                ondblclick="enlargeImage()"
+                alt="Community Event">
+
+            <br><br>
+
+            <!-- Submit -->
+            <button onclick="showConfirmation()">
+                Submit Feedback
+            </button>
+
+            <p id="submitMsg"></p>
+
+        </section>
+        <section class="video-section">
+
+            <h2>Community Event Promo Video</h2>
+
+            <video id="promoVideo"
+                width="500"
+                controls
+                oncanplay="videoReady()">
+
+                <source src="promo.mp4" type="video/mp4">
+
+                Your browser does not support the video tag.
+
+            </video>
+
+            <p id="videoStatus"></p>
+
+        </section>
+        <section class="preference-section">
+
+            <h2>User Preferences</h2>
+
+            <label>Select Preferred Event</label>
+
+            <select id="preferredEvent" onchange="savePreference()">
+                <option value="">Select Event</option>
+                <option value="Tree Plantation">Tree Plantation</option>
+                <option value="Blood Donation Camp">Blood Donation Camp</option>
+                <option value="Health Awareness Program">Health Awareness Program</option>
+                <option value="Cultural Fest">Cultural Fest</option>
+            </select>
+
+            <br><br>
+
+            <button onclick="clearPreferences()">
+                Clear Preferences
+            </button>
+
+            <p id="preferenceMessage"></p>
+
+        </section>
+        <section class="location-section">
+
+            <h2>Find Nearby Events</h2>
+
+            <button onclick="findLocation()">
+                Find Nearby Events
+            </button>
+
+            <p id="locationResult"></p>
+
+        </section>
+
+    </main>
+    <script>
+
+            // onblur
+            function validatePhone() {
+                let phone = document.getElementById("phone").value;
+
+                if (phone.length === 10 && !isNaN(phone)) {
+                    document.getElementById("phoneMsg").innerHTML =
+                        "Valid Phone Number";
+                } else {
+                    document.getElementById("phoneMsg").innerHTML =
+                        "Invalid Phone Number";
+                }
+            }
+
+            // onchange
+            function showFee() {
+                let fee =
+                    document.getElementById("eventSelect").value;
+
+                document.getElementById("feeDisplay").innerHTML =
+                    "Event Fee: ₹" + fee;
+            }
+
+            // onclick
+            function showConfirmation() {
+                document.getElementById("submitMsg").innerHTML =
+                    "Feedback Submitted Successfully!";
+            }
+
+            // ondblclick
+            function enlargeImage() {
+                let img =
+                    document.getElementById("eventImage");
+
+                if (img.style.width === "400px") {
+                    img.style.width = "200px";
+                } else {
+                    img.style.width = "400px";
+                }
+            }
+
+            // key events
+            function countCharacters() {
+                let count =
+                    document.getElementById("feedback").value.length;
+
+                document.getElementById("charCount").innerHTML =
+                    "Characters: " + count;
+            }
+            // oncanplay event
+            function videoReady() {
+                document.getElementById("videoStatus").innerHTML =
+                    "Video ready to play";
+            }
+
+            // onbeforeunload event
+            window.onbeforeunload = function () {
+
+                let feedback =
+                    document.getElementById("feedback");
+
+                if (feedback && feedback.value.trim() !== "") {
+                    return "You have unsaved changes. Are you sure you want to leave?";
+                }
+            };
+            // Save preference in localStorage
+            function savePreference() {
+
+                let selectedEvent =
+                    document.getElementById("preferredEvent").value;
+
+                localStorage.setItem(
+                    "preferredEvent",
+                    selectedEvent
+                );
+
+                sessionStorage.setItem(
+                    "currentSessionEvent",
+                    selectedEvent
+                );
+
+                document.getElementById("preferenceMessage").innerHTML =
+                    "Preference Saved Successfully";
+            }
+
+            // Retrieve preference on page load
+            window.onload = function () {
+
+                let savedEvent =
+                    localStorage.getItem("preferredEvent");
+
+                if (savedEvent) {
+                    document.getElementById("preferredEvent").value =
+                        savedEvent;
+                }
+            };
+
+            // Clear localStorage and sessionStorage
+            function clearPreferences() {
+
+                localStorage.clear();
+                sessionStorage.clear();
+
+                document.getElementById("preferredEvent").value = "";
+
+                document.getElementById("preferenceMessage").innerHTML =
+                    "All Preferences Cleared";
+            }
+            function findLocation() {
+
+                    if (navigator.geolocation) {
+
+                        const options = {
+                            enableHighAccuracy: true,
+                            timeout: 10000,
+                            maximumAge: 0
+                        };
+
+                        navigator.geolocation.getCurrentPosition(
+                            showPosition,
+                            showError,
+                            options
+                        );
+
+                    } else {
+
+                        document.getElementById("locationResult").innerHTML =
+                            "Geolocation is not supported by this browser.";
+                    }
+                }
+
+                function showPosition(position) {
+
+                    document.getElementById("locationResult").innerHTML =
+                        "Latitude: " + position.coords.latitude +
+                        "<br>Longitude: " + position.coords.longitude;
+                }
+
+                function showError(error) {
+
+                    switch (error.code) {
+
+                        case error.PERMISSION_DENIED:
+                            document.getElementById("locationResult").innerHTML =
+                                "Location access denied by user.";
+                            break;
+
+                        case error.POSITION_UNAVAILABLE:
+                            document.getElementById("locationResult").innerHTML =
+                                "Location information unavailable.";
+                            break;
+
+                        case error.TIMEOUT:
+                            document.getElementById("locationResult").innerHTML =
+                                "Location request timed out.";
+                            break;
+
+                        default:
+                            document.getElementById("locationResult").innerHTML =
+                                "Unknown error occurred.";
+                    }
+                }
+
+        </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Local Community Event Portal</p>
+    </footer>
+
+</body>
+
+</html>
